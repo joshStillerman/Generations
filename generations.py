@@ -15,13 +15,13 @@ def replace(word, index, letter):
     for thing in tempword:
         retrn = retrn + thing
     return retrn
-
+ 
 while True:
-
+    count = 0
     goal = raw_input("Enter Goal text(letters and spaces only): ").lower()
     text = ""
     for i in range(0, len(goal)):
-        text = text + letters[random.randint(0, len(letters)-1)]
+        text = text + letters[random.randint(0 , len(letters)-1)]
         print text
     done = False
     while not done:
@@ -29,7 +29,7 @@ while True:
             if text[i] != goal[i]:
                  text = replace(text, i, letters[random.randint(0, len(letters)-1)])
         print text
+        count += 1
         done = True if (text == goal) else False
-            
-        
-    
+
+    print "It took", count, "generations!"
